@@ -3,9 +3,10 @@ package repl
 import (
 	"bufio"
 	"fmt"
-	"interpreter/lexer"
-	"interpreter/token"
 	"io"
+
+	"github.com/goalm/intrpr/lexer"
+	"github.com/goalm/intrpr/token"
 )
 
 const PROMPT = ">> "

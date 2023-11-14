@@ -2,9 +2,10 @@ package parser
 
 import (
 	"fmt"
-	"interpreter/ast"
-	"interpreter/lexer"
-	"interpreter/token"
+
+	"github.com/goalm/intrpr/ast"
+	"github.com/goalm/intrpr/lexer"
+	"github.com/goalm/intrpr/token"
 )
 
 const (
