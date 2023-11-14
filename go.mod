@@ -1,3 +1,3 @@
-module github.com/goalm/intrpr
+module intrpr
 
 go 1.21.3

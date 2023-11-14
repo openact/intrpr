@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/goalm/intrpr/lexer"
-	"github.com/goalm/intrpr/token"
+	"intrpr/lexer"
+	"intrpr/token"
 )
 
 const PROMPT = ">> "

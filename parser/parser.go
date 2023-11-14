@@ -3,9 +3,9 @@ package parser
 import (
 	"fmt"
 
-	"github.com/goalm/intrpr/ast"
-	"github.com/goalm/intrpr/lexer"
-	"github.com/goalm/intrpr/token"
+	"intrpr/ast"
+	"intrpr/lexer"
+	"intrpr/token"
 )
 
 const (

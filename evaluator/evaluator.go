@@ -1,8 +1,8 @@
 package evaluator
 
 import (
-	"github.com/goalm/intrpr/ast"
-	"github.com/goalm/intrpr/object"
+	"intrpr/ast"
+	"intrpr/object"
 )
 
 func Eval(node ast.Node) object.Object {

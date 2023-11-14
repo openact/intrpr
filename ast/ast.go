@@ -2,7 +2,7 @@ package ast
 
 import (
 	"bytes"
-	"github.com/goalm/intrpr/token"
+	"intrpr/token"
 )
 
 type Node interface {

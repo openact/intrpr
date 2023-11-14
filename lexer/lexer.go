@@ -1,6 +1,6 @@
 package lexer
 
-import "github.com/goalm/intrpr/token"
+import "intrpr/token"
 
 type Lexer struct {
 	input        string
