@@ -2,7 +2,8 @@ package ast
 
 import (
 	"bytes"
-	"intrpr/token"
+
+	"github.com/openact/intrpr/token"
 )
 
 type Node interface {

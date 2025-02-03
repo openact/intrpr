@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io"
 
-	"intrpr/lexer"
-	"intrpr/token"
+	"github.com/openact/intrpr/lexer"
+	"github.com/openact/intrpr/token"
 )
 
 const PROMPT = ">> "

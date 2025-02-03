@@ -1,7 +1,7 @@
 package lexer
 
 import (
-	"interpreter/token"
+	"github.com/openact/intrpr/token"
 	"testing"
 )
 

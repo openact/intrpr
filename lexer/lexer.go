@@ -1,6 +1,10 @@
 package lexer
 
-import "intrpr/token"
+import (
+	"strings"
+
+	"github.com/openact/intrpr/token"
+)
 
 type Lexer struct {
 	input        string
@@ -13,6 +17,23 @@ func New(input string) *Lexer {
 	l := &Lexer{input: input}
 	l.readChar()
 	return l
+}
+
+// customized by Martin
+func GetIndents(exp string) []string {
+	l := New(exp)
+	var ind []string
+	for {
+		tok := l.NextToken()
+		if tok.Type == token.IDENT {
+			tok.Literal = strings.ToUpper(tok.Literal)
+			ind = append(ind, tok.Literal)
+		}
+		if tok.Type == token.EOF {
+			break
+		}
+	}
+	return ind
 }
 
 func (l *Lexer) readChar() {
@@ -39,7 +60,8 @@ func (l *Lexer) peekChar() byte {
 }
 func isLetter(ch byte) bool {
 	// Check if the character is a letter
-	return 'a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z' || ch == '_'
+	// allow exp like: ifrs17
+	return 'a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z' || ch == '_' || '0' <= ch && ch <= '9'
 }
 
 func (l *Lexer) readIdentifier() string {
@@ -96,7 +118,9 @@ func (l *Lexer) NextToken() token.Token {
 	default:
 		if isLetter(l.ch) {
 			// Read the whole identifier
-			tok.Literal = l.readIdentifier()
+			str := l.readIdentifier()
+			tok.Literal = str
+
 			tok.Type = token.LookupIdent(tok.Literal)
 			// AND --> && ...
 			tok.Alias = token.LookupAlias(tok.Literal)

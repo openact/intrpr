@@ -14,6 +14,17 @@ const (
 	OR  = "OR"
 	NOT = "NOT"
 
+	IF    = "IF"
+	ELSE  = "ELSE"
+	THEN  = "THEN"
+	EQ    = "="
+	PLUS  = "+"
+	MINUS = "-"
+	LT    = "<"
+	GT    = ">"
+	DIV   = "/"
+	MUL   = "*"
+
 	SEMICOLON  = ";"
 	WHITESPACE = " "
 )
@@ -27,15 +38,37 @@ type Token struct {
 }
 
 var keywords = map[string]TokenType{
-	"AND": AND,
-	"OR":  OR,
-	"NOT": NOT,
+	"AND":   AND,
+	"and":   AND,
+	"And":   AND,
+	"OR":    OR,
+	"Or":    OR,
+	"or":    OR,
+	"NOT":   NOT,
+	"Not":   NOT,
+	"not":   NOT,
+	"IF":    IF,
+	"ELSE":  ELSE,
+	"THEN":  THEN,
+	"EQ":    EQ,
+	"PLUS":  PLUS,
+	"MINUS": MINUS,
+	"LT":    LT,
+	"GT":    GT,
+	"DIV":   DIV,
+	"MUL":   MUL,
 }
 
 var aliases = map[string]string{
 	"AND": "&&",
+	"And": "&&",
+	"and": "&&",
 	"OR":  "||",
+	"Or":  "||",
+	"or":  "||",
 	"NOT": "!",
+	"Not": "!",
+	"not": "!",
 }
 
 func LookupIdent(ident string) TokenType {

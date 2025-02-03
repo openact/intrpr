@@ -3,9 +3,9 @@ package parser
 import (
 	"fmt"
 
-	"intrpr/ast"
-	"intrpr/lexer"
-	"intrpr/token"
+	"github.com/openact/intrpr/ast"
+	"github.com/openact/intrpr/lexer"
+	"github.com/openact/intrpr/token"
 )
 
 const (
@@ -54,6 +54,14 @@ func New(l *lexer.Lexer) *Parser {
 	p.nextToken()
 	// Read two tokens, so currentToken and peekToken are both set
 	return p
+}
+
+// customized by Martin
+func CreateParseProgram(input string) *ast.Program {
+	l := lexer.New(input)
+	p := New(l)
+	program := p.ParseProgram()
+	return program
 }
 
 func (p *Parser) parseGroupedExpression() ast.Expression {

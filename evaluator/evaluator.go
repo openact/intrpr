@@ -1,8 +1,8 @@
 package evaluator
 
 import (
-	"intrpr/ast"
-	"intrpr/object"
+	"github.com/openact/intrpr/ast"
+	"github.com/openact/intrpr/object"
 )
 
 func Eval(node ast.Node) object.Object {
